@@ -9,8 +9,8 @@ pipeline {
         agent any  
             steps {
                 sh 'terraform init -input=false'
-                sh 'terraform plan -input=false'
-                sh 'terraform apply -input=false'
+                sh 'terraform plan -out=tfplan -input=false'
+                sh 'terraform apply -input=false tfplan'
             } 
         }    
     }
