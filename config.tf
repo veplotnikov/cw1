@@ -15,7 +15,7 @@ provider "aws" {
 
 
 resource "aws_security_group" "allow_trafic" {
-  name        = "my-security-g"
+  name        = "my-security-group"
   description = "Allow inbound traffic"
   
 
@@ -49,5 +49,9 @@ resource "aws_instance" "build_server" {
   vpc_security_group_ids = [aws_security_group.allow_trafic.id]
   tags = {
     Name = "build"
+  }
+  output "instance_public_ip" {
+  description = "Public IP address of the EC2 instance"
+  value       = aws_instance.build_server.public_ip
   }
 }
