@@ -11,7 +11,7 @@ pipeline {
             sh '''
                 [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                 ssh-keyscan -t rsa,dsa 18.194.2.231 >> ~/.ssh/known_hosts
-                ssh ubuntu@18.194.2.231  "sudo -i && cat /etc/lsb-release >> /opt/test.txt"
+                ssh ubuntu@18.194.2.231  "pwd"
             '''
             
               
