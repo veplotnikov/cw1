@@ -11,7 +11,7 @@ pipeline {
             sh '''
                 [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                 ssh-keyscan -t rsa,dsa example.com >> ~/.ssh/known_hosts
-                ssh ubuntu@18.194.2.231  cat /etc/lsb-release && ip add
+                ssh ubuntu@18.194.2.231  sudo cat /etc/lsb-release >> /test.txt 
             '''
           }
             }
