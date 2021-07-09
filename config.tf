@@ -14,8 +14,8 @@ provider "aws" {
 }
 
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "my-security-groups"
+resource "aws_security_group" "allow_trafic" {
+  name        = "${random_pet.name.id}-sg"
   description = "Allow inbound traffic"
   
 
@@ -46,7 +46,7 @@ resource "aws_instance" "build_server" {
   instance_type = "t2.micro"
   key_name = "mykeys"
   user_data = "${file("docker-install.sh")}"
-  security_groups = "my-security-groups"
+  vpc_security_group_ids = [aws_security_group.allow_trafic.id]
   tags = {
     Name = "build"
   }
