@@ -21,7 +21,7 @@ pipeline {
         stage ('deploy instans to aws') {
         agent any  
             steps {
-                sh terraform init
+                sh 'terraform init'
             } 
         }    
     }
