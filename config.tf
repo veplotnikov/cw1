@@ -15,7 +15,7 @@ provider "aws" {
 
 
 resource "aws_security_group" "allow_trafic" {
-  name        = "${random_pet.name.id}-sg"
+  name        = "${build}-sg"
   description = "Allow inbound traffic"
   
 
