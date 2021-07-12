@@ -15,9 +15,8 @@ pipeline {
         }
          
        stage ("wait deployment AWS") {
-         def time = params.SLEEP_TIME_IN_SECONDS
-             echo "Waiting ${SLEEP_TIME_IN_SECONDS} seconds for deployment to complete prior starting smoke testing"
-           sleep time.toInteger() // seconds
+          echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
+          sleep 300
          }
 
         stage ('Build & run app') {
@@ -32,3 +31,5 @@ pipeline {
         
 }
 
+("wait_prior_starting_smoke_testing") {
+  echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
