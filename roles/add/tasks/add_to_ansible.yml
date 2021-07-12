@@ -1,6 +1,6 @@
 ---
 - name: to get ip from created instance
-  command: extractip.sh {{item}}
+  command: ./extractip.sh {{item}}
   #  argv:
   #    - "{{item}}"
   register: ip
