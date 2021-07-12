@@ -1,5 +1,8 @@
+---
 - name: to get ip from created instance
-  command: /var/lib/jenkins/workspace/123/extractip.sh build
+  command: extractip.sh 
+      argv:
+       - "{{item}}"
   register: ip
 
 - name: Add IP instances to ansible
