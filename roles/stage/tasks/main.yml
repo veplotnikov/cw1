@@ -1,0 +1,7 @@
+---
+- name: Run container tomcat
+  docker_container:
+    name: tomcat
+    image: volodyaaggregion/cw1:latest
+    ports:
+      - "80:8080"
