@@ -12,6 +12,14 @@ pipeline {
                 sh 'terraform plan -out=tfplan -input=false'
                 sh 'terraform apply -input=false tfplan'
             } 
+        }
+
+        stage ('Build & run app') {
+        agent any
+            steps {
+                sh 'ansible-playbook cw1.yml  -vvv'
+            }
+
         }    
     }
         
