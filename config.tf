@@ -57,16 +57,16 @@ resource "aws_instance" "build_server" {
     }
   }
 
-#output "instance_public_ip" {
-#description = "Public IP address of the EC2 instance"
-#value       = aws_instance.build_server.public_ip
-#  }
-
-
-
-provider "local" {
-  resource "file" "aws_ip" {
-    content     = [aws_instance.build_server.public_ip]
-    filename = "${path.module}/aws_ip.txt"
+output "instance_public_ip" {
+description = "Public IP address of the EC2 instance"
+value       = aws_instance.build_server.public_ip
   }
-}
+
+
+
+#provider "local" {
+#  resource "file" "aws_ip" {
+#    content     = aws_instance.build_server.public_ip
+#    filename = "${path.module}/aws_ip.txt"
+#  }
+#}
