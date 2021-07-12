@@ -42,7 +42,7 @@
 
 - name: Build image tomcat
   docker_image: 
-    name: volodyaaggregion/hw13
+    name: volodyaaggregion/cw1
     tag: latest
     push: yes
     force_tag: yes
