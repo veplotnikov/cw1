@@ -17,7 +17,7 @@ pipeline {
         stage ('Build & run app') {
         agent any
             steps {
-                sh 'ansible-playbook cw1.yml  -vvv'
+                sh 'ansible-playbook roles.yml  -vvv'
             }
 
         }    
