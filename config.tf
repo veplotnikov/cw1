@@ -57,16 +57,13 @@ resource "aws_instance" "build_server" {
     }
   }
 
-output "instance_public_ip" {
-description = "Public IP address of the EC2 instance"
-value       = aws_instance.build_server.public_ip
+resource "aws_instance" "stage_server" {
+  ami           = "ami-05f7491af5eef733a"
+  instance_type = "t2.micro"
+  key_name = "mykeys"
+  user_data = "${file("docker-install.sh")}"
+  vpc_security_group_ids = [aws_security_group.allow_trafic.id]
+  tags = {
+    Name = "stage"
+    }
   }
-
-
-
-#provider "local" {
-#  resource "file" "aws_ip" {
-#    content     = aws_instance.build_server.public_ip
-#    filename = "${path.module}/aws_ip.txt"
-#  }
-#}
