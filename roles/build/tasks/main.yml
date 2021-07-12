@@ -25,7 +25,7 @@
     name: maven
     image: maven
     volumes:
-      - volume_one:/opt/boxfuse/target/  
+      - volume_one:/opt/war  
     recreate: yes
 
 - name: Log into DockerHub 
@@ -38,10 +38,6 @@
     src: /var/lib/docker/volumes/volume_one/_data/
     dest: /app/boxfuse/tomcat/
   delegate_to: "{{ inventory_hostname }}"
-
-#- name: copy file to workdir tomcat
-#  shell:  cp /var/lib/docker/volumes/volume_one/_data/hello-1.0.war /app/boxfuse/tomcat/
-
 
 
 - name: Build image tomcat
