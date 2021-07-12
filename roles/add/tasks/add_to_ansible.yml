@@ -1,6 +1,6 @@
 ---
 - name: to get ip from created instance
-  command: ./extractip.sh {{item}}
+  script: ./extractip.sh {{item}}
   register: ip
 
 - name: Add IP instances to ansible
