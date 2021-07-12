@@ -11,8 +11,8 @@
   roles:
     - build
 
-#- name: run app
-#  hosts: stage
-#  become: yes
-#  roles:
-#    - stage
+- name: run app
+  hosts: stage
+  become: yes
+  roles:
+    - stage
