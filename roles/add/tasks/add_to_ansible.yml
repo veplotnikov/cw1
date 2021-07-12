@@ -5,7 +5,7 @@
 
 - name: Add IP instances to ansible
   add_host:
-   hostname: "{{ ip.stdout }}"
+   hostname: "{{ ip.stdout_lines }}"
    ansible_user: ubuntu
    ansible_ssh_private_key_file: "/opt/aws-private-{{item}}.pem"
    groups:
