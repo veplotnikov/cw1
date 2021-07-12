@@ -6,11 +6,11 @@
   roles:
     - add
 
-#- name: Build app
-#  hosts: build
-#  become: yes
-#  roles:
-#    - build
+- name: Build app
+  hosts: build
+  become: yes
+  roles:
+    - build
 
 #- name: run app
 #  hosts: stage
