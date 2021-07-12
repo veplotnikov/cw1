@@ -16,8 +16,8 @@ pipeline {
          
         stage ('wait deployment AWS') {
             steps {
-             echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
-             sleep 300
+             echo 'Waiting 3 minutes for deployment to complete install software..'
+             sleep 180
              }
           }
 
