@@ -1,3 +1,4 @@
+---
 - name: Create executable script
   file:
     path: extractip.sh
