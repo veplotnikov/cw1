@@ -5,4 +5,4 @@ RUN mkdir /opt/boxfuse
 RUN mkdir /opt/war
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /opt/boxfuse/
 RUN mvn -f /opt/boxfuse/pom.xml package
-#RUN cp /opt/boxfuse/target/hello-1.0.war /opt/war/
+RUN cp /opt/boxfuse/target/hello-1.0.war /opt/war/
