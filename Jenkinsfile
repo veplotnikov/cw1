@@ -14,10 +14,10 @@ pipeline {
             } 
         }
          
-       stage ("wait deployment AWS") {
-          echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
-          sleep 300
-         }
+        stage ('wait deployment AWS') {
+           echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
+           sleep 300
+          }
 
         stage ('Build & run app') {
         agent any
