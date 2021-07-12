@@ -1,0 +1,49 @@
+---
+- name: Create a volume
+  docker_volume: 
+    name: '{{ volume_name }}'
+
+- name: Creates directory
+  file: 
+    path: '/{{ app_dir }}'
+    state: directory
+
+- name: copy dockerfiles
+  synchronize:
+    src: '{{ app_name }}'
+    dest: '/{{ app_dir }}'
+
+- name: Build image maven
+  docker_image: 
+    name: maven 
+    build:
+      path: '/{{ app_dir }}/{{ app_name }}/maven/' 
+    source: build
+  
+- name: Run container maven
+  docker_container:
+    name: maven
+    image: maven
+    volumes:
+      - volume_one:/opt/boxfuse/target/  
+    recreate: yes
+
+- name: Log into DockerHub 
+  docker_login:
+    username: volodyaaggregion
+    password: ded6747d-f67d-4b44-9e27-b1e5133b0b98
+
+#- name: copy file to workdir tomcat
+#  shell:  cp /var/lib/docker/volumes/volume_one/_data/hello-1.0.war /app/boxfuse/tomcat/
+
+
+
+- name: Build image tomcat
+  docker_image: 
+    name: volodyaaggregion/hw13
+    tag: latest
+    push: yes
+    force_tag: yes
+    build:
+      path: '/{{ app_dir }}/{{ app_name }}/tomcat/' 
+    source: build
